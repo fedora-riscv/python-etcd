@@ -2,7 +2,7 @@
 %global srcname python-%{modname}
 
 Name:           %{srcname}
-Version:        0.4.4
+Version:        0.4.5
 Release:        1%{?dist}
 Summary:        A python client library for etcd
 
@@ -36,8 +36,6 @@ BuildRequires:  python3-pyOpenSSL
 
 # Needed for tests
 BuildRequires:  etcd
-
-Patch1: python-etcd-0.4.3-Removed-the-new-auth-module.patch
 
 %description
 Client library for interacting with an etcd service, providing Python
@@ -99,6 +97,9 @@ nosetests src/etcd/tests/unit/
 %{python3_sitelib}/*
 
 %changelog
+* Thu Mar  2 2017 Steve Milner <smilner@redhat.com> - 0.4.5-1
+- Update to 0.4.5
+
 * Fri Feb 17 2017 Matthew Barnes <mbarnes@redhat.com> - 0.4.4-1
 - Update to 0.4.4
 
