@@ -3,7 +3,7 @@
 
 Name:           %{srcname}
 Version:        0.4.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A python client library for etcd
 
 License:        MIT
@@ -47,6 +47,7 @@ election.
 Summary:        %summary
 Requires:       etcd
 Requires:       python-dns
+Requires:       python-urllib3
 %{?python_provide:%python_provide python2-%{modname}}
 
 %description -n python2-%{srcname}
@@ -59,6 +60,7 @@ election.
 Summary:        %summary
 Requires:       etcd
 Requires:       python3-dns
+Requires:       python3-urllib3
 %{?python_provide:%python_provide python3-%{modname}}
 
 %description -n python3-%{srcname}
@@ -97,6 +99,10 @@ nosetests src/etcd/tests/unit/
 %{python3_sitelib}/*
 
 %changelog
+* Wed Apr 12 2017 Matthew Barnes <mbarnes@redhat.com> - 0.4.5-2
+- Add missing requires python[3]-urllib3 (rhbz#1440546).
+- Patch from Oleg Gashev <oleg@gashev.net>
+
 * Thu Mar  2 2017 Steve Milner <smilner@redhat.com> - 0.4.5-1
 - Update to 0.4.5
 
