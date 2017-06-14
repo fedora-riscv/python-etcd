@@ -3,7 +3,7 @@
 
 Name:           %{srcname}
 Version:        0.4.5
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        A python client library for etcd
 
 License:        MIT
@@ -18,7 +18,7 @@ Source0:        https://github.com/jplana/%{srcname}/archive/%{version}.tar.gz
 BuildArch:      noarch
 
 # See https://bugzilla.redhat.com/1393497
-ExclusiveArch:  noarch %{ix86} x86_64 %{arm} aarch64 ppc64le
+ExcludeArch:    ppc64
 
 BuildRequires:  python2-devel
 BuildRequires:  python-dns
@@ -99,6 +99,9 @@ nosetests src/etcd/tests/unit/
 %{python3_sitelib}/*
 
 %changelog
+* Wed Jun 14 2017 Matthew Barnes <mbarnes@redhat.com> - 0.4.5-3
+- Try excluding ppc64 directly, since ExclusiveArch doesn't.
+
 * Wed Apr 12 2017 Matthew Barnes <mbarnes@redhat.com> - 0.4.5-2
 - Add missing requires python[3]-urllib3 (rhbz#1440546).
 - Patch from Oleg Gashev <oleg@gashev.net>
