@@ -3,7 +3,7 @@
 
 Name:           %{srcname}
 Version:        0.4.5
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        A python client library for etcd
 
 License:        MIT
@@ -35,9 +35,6 @@ BuildRequires:  python3-nose
 BuildRequires:  python3-urllib3
 BuildRequires:  python3-pyOpenSSL
 
-# Needed for tests
-BuildRequires:  etcd
-
 %description
 Client library for interacting with an etcd service, providing Python
 access to the full etcd REST API.  Includes authentication, accessing
@@ -46,7 +43,6 @@ election.
 
 %package -n python2-%{srcname}
 Summary:        %summary
-Requires:       etcd
 Requires:       python-dns
 Requires:       python-urllib3
 %{?python_provide:%python_provide python2-%{modname}}
@@ -59,7 +55,6 @@ election.
 
 %package -n python3-%{srcname}
 Summary:        %summary
-Requires:       etcd
 Requires:       python3-dns
 Requires:       python3-urllib3
 %{?python_provide:%python_provide python3-%{modname}}
@@ -100,6 +95,9 @@ nosetests src/etcd/tests/unit/
 %{python3_sitelib}/*
 
 %changelog
+* Mon Jun 19 2017 Steve Milner <smilner@redhat.com> - 0.4.5-5
+- Remove requirements on etcd for build and install
+
 * Mon Jun 19 2017 Matthew Barnes <mbarnes@redhat.com> - 0.4.5-4
 - Last change didn't help and we were in compliance with Packaging
   Guidelines before the change, so revert.  The fact that it still
