@@ -3,7 +3,7 @@
 
 Name:           %{srcname}
 Version:        0.4.5
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        A python client library for etcd
 
 License:        MIT
@@ -18,7 +18,8 @@ Source0:        https://github.com/jplana/%{srcname}/archive/%{version}.tar.gz
 BuildArch:      noarch
 
 # See https://bugzilla.redhat.com/1393497
-ExcludeArch:    ppc64
+# Also https://fedoraproject.org/wiki/Packaging:Guidelines#Noarch_with_Unported_Dependencies
+ExclusiveArch:  noarch %{ix86} x86_64 %{arm} aarch64 ppc64le
 
 BuildRequires:  python2-devel
 BuildRequires:  python-dns
@@ -99,6 +100,12 @@ nosetests src/etcd/tests/unit/
 %{python3_sitelib}/*
 
 %changelog
+* Mon Jun 19 2017 Matthew Barnes <mbarnes@redhat.com> - 0.4.5-4
+- Last change didn't help and we were in compliance with Packaging
+  Guidelines before the change, so revert.  The fact that it still
+  randomly gets built on ppc64 seems to be a Fedora infrastructure
+  issue.
+
 * Wed Jun 14 2017 Matthew Barnes <mbarnes@redhat.com> - 0.4.5-3
 - Try excluding ppc64 directly, since ExclusiveArch doesn't.
 
