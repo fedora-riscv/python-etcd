@@ -102,7 +102,7 @@ nosetests src/etcd/tests/unit/
 - Last change didn't help and we were in compliance with Packaging
   Guidelines before the change, so revert.  The fact that it still
   randomly gets built on ppc64 seems to be a Fedora infrastructure
-  issure.
+  issue.
 
 * Wed Jun 14 2017 Matthew Barnes <mbarnes@redhat.com> - 0.4.5-3
 - Try excluding ppc64 directly, since ExclusiveArch doesn't.
