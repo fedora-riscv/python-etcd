@@ -3,7 +3,7 @@
 
 Name:           %{srcname}
 Version:        0.4.5
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        A python client library for etcd
 
 License:        MIT
@@ -19,7 +19,7 @@ BuildArch:      noarch
 
 # See https://bugzilla.redhat.com/1393497
 # Also https://fedoraproject.org/wiki/Packaging:Guidelines#Noarch_with_Unported_Dependencies
-ExclusiveArch:  noarch %{ix86} x86_64 %{arm} aarch64 ppc64le
+ExclusiveArch:  noarch %{ix86} x86_64 %{arm} aarch64 ppc64le s390x
 
 BuildRequires:  python2-devel
 BuildRequires:  python-dns
@@ -95,6 +95,9 @@ nosetests src/etcd/tests/unit/
 %{python3_sitelib}/*
 
 %changelog
+* Mon Jun 19 2017 Matthew Barnes <mbarnes@redhat.com> - 0.4.5-6
+- I'm told etcd works on s390x too; add it to ExclusiveArch.
+
 * Mon Jun 19 2017 Steve Milner <smilner@redhat.com> - 0.4.5-5
 - Remove requirements on etcd for build and install
 
