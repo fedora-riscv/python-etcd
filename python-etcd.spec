@@ -3,7 +3,7 @@
 
 Name:           %{srcname}
 Version:        0.4.5
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        A python client library for etcd
 
 License:        MIT
@@ -95,6 +95,9 @@ nosetests src/etcd/tests/unit/
 %{python3_sitelib}/*
 
 %changelog
+* Thu Jul 27 2017 Fedora Release Engineering <releng@fedoraproject.org> - 0.4.5-7
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
 * Mon Jun 19 2017 Matthew Barnes <mbarnes@redhat.com> - 0.4.5-6
 - I'm told etcd works on s390x too; add it to ExclusiveArch.
 
