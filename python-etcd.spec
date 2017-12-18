@@ -99,7 +99,7 @@ nosetests src/etcd/tests/unit/
 %{python3_sitelib}/*
 
 %changelog
-* Mon Dec 18 2017 Steve Milner <smilner@redhat.com> - 0.4.5-6
+* Mon Dec 18 2017 Steve Milner <smilner@redhat.com> - 0.4.5-8
 - Fix naming per rhbz#1526788.
 
 * Thu Jul 27 2017 Fedora Release Engineering <releng@fedoraproject.org> - 0.4.5-7
