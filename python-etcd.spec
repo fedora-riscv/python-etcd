@@ -3,7 +3,7 @@
 
 Name:           %{srcname}
 Version:        0.4.5
-Release:        7%{?dist}
+Release:        8%{?dist}
 Summary:        A python client library for etcd
 
 License:        MIT
@@ -41,25 +41,29 @@ access to the full etcd REST API.  Includes authentication, accessing
 and manipulating shared content, managing cluster members, and leader
 election.
 
-%package -n python2-%{srcname}
+%package -n python2-%{modname}
 Summary:        %summary
 Requires:       python-dns
 Requires:       python-urllib3
-%{?python_provide:%python_provide python2-%{modname}}
+Obsoletes:      python2-python-etcd
+Provides:       python2-python-etcd
+%{?python_provide:%python_provide python2-etcd}
 
-%description -n python2-%{srcname}
+%description -n python2-%{modname}
 Client library for interacting with an etcd service, providing Python
 access to the full etcd REST API.  Includes authentication, accessing
 and manipulating shared content, managing cluster members, and leader
 election.
 
-%package -n python3-%{srcname}
+%package -n python3-%{modname}
 Summary:        %summary
 Requires:       python3-dns
 Requires:       python3-urllib3
-%{?python_provide:%python_provide python3-%{modname}}
+Obsoletes:      python3-python-etcd
+Provides:       python3-python-etcd
+%{?python_provide:%python_provide python3-etcd}
 
-%description -n python3-%{srcname}
+%description -n python3-%{modname}
 Client library for interacting with an etcd service, providing Python
 access to the full etcd REST API.  Includes authentication, accessing
 and manipulating shared content, managing cluster members, and leader
@@ -84,17 +88,20 @@ nosetests src/etcd/tests/unit/
 # Package Index (pypi) then tests pass.
 #%%{__python3} setup.py test
 
-%files -n python2-%{srcname}
+%files -n python2-%{modname}
 %doc README.rst
 %license LICENSE.txt
 %{python2_sitelib}/*
 
-%files -n python3-%{srcname}
+%files -n python3-%{modname}
 %doc README.rst
 %license LICENSE.txt
 %{python3_sitelib}/*
 
 %changelog
+* Mon Dec 18 2017 Steve Milner <smilner@redhat.com> - 0.4.5-6
+- Fix naming per rhbz#1526788.
+
 * Thu Jul 27 2017 Fedora Release Engineering <releng@fedoraproject.org> - 0.4.5-7
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
 
