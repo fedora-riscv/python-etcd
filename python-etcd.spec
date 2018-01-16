@@ -3,7 +3,7 @@
 
 Name:           %{srcname}
 Version:        0.4.5
-Release:        8%{?dist}
+Release:        9%{?dist}
 Summary:        A python client library for etcd
 
 License:        MIT
@@ -22,11 +22,11 @@ BuildArch:      noarch
 ExclusiveArch:  noarch %{ix86} x86_64 %{arm} aarch64 ppc64le s390x
 
 BuildRequires:  python2-devel
-BuildRequires:  python-dns
-BuildRequires:  python-mock
-BuildRequires:  python-nose
-BuildRequires:  python-urllib3
-BuildRequires:  pyOpenSSL
+BuildRequires:  python2-dns
+BuildRequires:  python2-mock
+BuildRequires:  python2-nose
+BuildRequires:  python2-urllib3
+BuildRequires:  python2-pyOpenSSL
 
 BuildRequires:  python3-devel
 BuildRequires:  python3-dns
@@ -43,8 +43,8 @@ election.
 
 %package -n python2-%{modname}
 Summary:        %summary
-Requires:       python-dns
-Requires:       python-urllib3
+Requires:       python2-dns
+Requires:       python2-urllib3
 Obsoletes:      python2-python-etcd
 Provides:       python2-python-etcd
 %{?python_provide:%python_provide python2-etcd}
@@ -99,6 +99,10 @@ nosetests src/etcd/tests/unit/
 %{python3_sitelib}/*
 
 %changelog
+* Tue Jan 16 2018 Iryna Shcherbina <ishcherb@redhat.com> - 0.4.5-9
+- Update Python 2 dependency declarations to new packaging standards
+  (See https://fedoraproject.org/wiki/FinalizingFedoraSwitchtoPython3)
+
 * Mon Dec 18 2017 Steve Milner <smilner@redhat.com> - 0.4.5-8
 - Fix naming per rhbz#1526788.
 
