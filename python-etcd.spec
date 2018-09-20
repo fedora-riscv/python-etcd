@@ -3,7 +3,7 @@
 
 Name:           %{srcname}
 Version:        0.4.5
-Release:        12%{?dist}
+Release:        13%{?dist}
 Summary:        A python client library for etcd
 
 License:        MIT
@@ -21,13 +21,6 @@ BuildArch:      noarch
 # Also https://fedoraproject.org/wiki/Packaging:Guidelines#Noarch_with_Unported_Dependencies
 ExclusiveArch:  noarch %{ix86} x86_64 %{arm} aarch64 ppc64le s390x
 
-BuildRequires:  python2-devel
-BuildRequires:  python2-dns
-BuildRequires:  python2-mock
-BuildRequires:  python2-nose
-BuildRequires:  python2-urllib3
-BuildRequires:  python2-pyOpenSSL
-
 BuildRequires:  python3-devel
 BuildRequires:  python3-dns
 BuildRequires:  python3-mock
@@ -36,20 +29,6 @@ BuildRequires:  python3-urllib3
 BuildRequires:  python3-pyOpenSSL
 
 %description
-Client library for interacting with an etcd service, providing Python
-access to the full etcd REST API.  Includes authentication, accessing
-and manipulating shared content, managing cluster members, and leader
-election.
-
-%package -n python2-%{modname}
-Summary:        %summary
-Requires:       python2-dns
-Requires:       python2-urllib3
-Obsoletes:      python2-python-etcd
-Provides:       python2-python-etcd
-%{?python_provide:%python_provide python2-etcd}
-
-%description -n python2-%{modname}
 Client library for interacting with an etcd service, providing Python
 access to the full etcd REST API.  Includes authentication, accessing
 and manipulating shared content, managing cluster members, and leader
@@ -73,11 +52,9 @@ election.
 %autosetup -p1
 
 %build
-%py2_build
 %py3_build
 
 %install
-%py2_install
 %py3_install
 
 %check
@@ -88,17 +65,15 @@ nosetests src/etcd/tests/unit/
 # Package Index (pypi) then tests pass.
 #%%{__python3} setup.py test
 
-%files -n python2-%{modname}
-%doc README.rst
-%license LICENSE.txt
-%{python2_sitelib}/*
-
 %files -n python3-%{modname}
 %doc README.rst
 %license LICENSE.txt
 %{python3_sitelib}/*
 
 %changelog
+* Thu Sep 20 2018 Matthew Barnes <mbarnes@redhat.com> - 0.4.5-13
+- Remove python2 subpackage (rhbz#1630954).
+
 * Sat Jul 14 2018 Fedora Release Engineering <releng@fedoraproject.org> - 0.4.5-12
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
