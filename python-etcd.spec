@@ -58,7 +58,7 @@ election.
 %py3_install
 
 %check
-nosetests src/etcd/tests/unit/
+nosetests-3 src/etcd/tests/unit/
 
 # This seems to require a newer python3-mock than what's currently available
 # in F23, and even Rawhide.  If I let it download mock-1.3.0 from the Python
