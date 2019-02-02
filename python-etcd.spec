@@ -3,7 +3,7 @@
 
 Name:           %{srcname}
 Version:        0.4.5
-Release:        13%{?dist}
+Release:        14%{?dist}
 Summary:        A python client library for etcd
 
 License:        MIT
@@ -71,6 +71,9 @@ nosetests-3 src/etcd/tests/unit/
 %{python3_sitelib}/*
 
 %changelog
+* Sat Feb 02 2019 Fedora Release Engineering <releng@fedoraproject.org> - 0.4.5-14
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
 * Thu Sep 20 2018 Matthew Barnes <mbarnes@redhat.com> - 0.4.5-13
 - Remove python2 subpackage (rhbz#1630954).
 
