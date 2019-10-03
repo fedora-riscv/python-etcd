@@ -3,7 +3,7 @@
 
 Name:           %{srcname}
 Version:        0.4.5
-Release:        16%{?dist}
+Release:        17%{?dist}
 Summary:        A python client library for etcd
 
 License:        MIT
@@ -71,6 +71,9 @@ nosetests-3 src/etcd/tests/unit/
 %{python3_sitelib}/*
 
 %changelog
+* Thu Oct 03 2019 Miro Hrončok <mhroncok@redhat.com> - 0.4.5-17
+- Rebuilt for Python 3.8.0rc1 (#1748018)
+
 * Mon Aug 19 2019 Miro Hrončok <mhroncok@redhat.com> - 0.4.5-16
 - Rebuilt for Python 3.8
 
