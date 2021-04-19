@@ -22,6 +22,7 @@ BuildArch:      noarch
 ExclusiveArch:  noarch %{ix86} x86_64 %{arm} aarch64 ppc64le s390x
 
 BuildRequires:  python3-devel
+BuildRequires:  python3-setuptools
 BuildRequires:  python3-dns
 BuildRequires:  python3-mock
 BuildRequires:  python3-nose
