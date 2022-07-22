@@ -3,7 +3,7 @@
 
 Name:           %{srcname}
 Version:        0.4.5
-Release:        25%{?dist}
+Release:        26%{?dist}
 Summary:        A python client library for etcd
 
 License:        MIT
@@ -72,6 +72,9 @@ nosetests-3 src/etcd/tests/unit/
 %{python3_sitelib}/*
 
 %changelog
+* Fri Jul 22 2022 Fedora Release Engineering <releng@fedoraproject.org> - 0.4.5-26
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild
+
 * Tue Jun 14 2022 Python Maint <python-maint@redhat.com> - 0.4.5-25
 - Rebuilt for Python 3.11
 
