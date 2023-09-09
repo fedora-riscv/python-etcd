@@ -3,7 +3,7 @@
 
 Name:           %{srcname}
 Version:        0.4.5
-Release:        26.rv64%{?dist}
+Release:        27.rv64%{?dist}
 Summary:        A python client library for etcd
 
 License:        MIT
@@ -72,6 +72,12 @@ nosetests-3 src/etcd/tests/unit/
 %{python3_sitelib}/*
 
 %changelog
+* Sat Sep 09 2023 Zhengyu He <hezhy472013@gmail.com> - 0.4.5-27.rv64
+- Merge remote-tracking branch 'fedoraproject/f38' into f38-rv64
+
+* Fri Jan 20 2023 Fedora Release Engineering <releng@fedoraproject.org> - 0.4.5-27
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
+
 * Sat Jan 28 2023 Liu Yang <Yang.Liu.sn@gmail.com> - 0.4.5-26.rv64
 - Add riscv64 to arches.
 
