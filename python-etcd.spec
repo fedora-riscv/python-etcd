@@ -3,7 +3,7 @@
 
 Name:           %{srcname}
 Version:        0.4.5
-Release:        29%{?dist}
+Release:        29.rv64%{?dist}
 Summary:        A python client library for etcd
 
 License:        MIT
@@ -23,7 +23,7 @@ BuildArch:      noarch
 
 # See https://bugzilla.redhat.com/1393497
 # Also https://fedoraproject.org/wiki/Packaging:Guidelines#Noarch_with_Unported_Dependencies
-ExclusiveArch:  noarch %{ix86} x86_64 %{arm} aarch64 ppc64le s390x
+ExclusiveArch:  noarch %{ix86} x86_64 %{arm} aarch64 ppc64le s390x riscv64
 
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
